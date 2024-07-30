@@ -1,0 +1,9 @@
+# Project with Netflix Data
+
+This project uses data from [this Kaggle dataset](https://www.kaggle.com/datasets/bharatnatrayn/movies-dataset-for-feature-extracion-prediction?select=movies.csv), which contains top Netflix movies and TV shows. The purpose of the project was to practice data cleaning, string manipulation in particular. Several of the columns needed to be split, specifically the `STARS`, `YEAR` and `GENRE` columns. I split the `STARS` column into `director` and `actors` columns, the `YEAR` column into `start_year` and `end_year`, and `GENRE` into one-hot encoded columns with the prefix `genre_`. 
+
+After cleaning the data, I did some basic sentiment analysis on the `one-line` column, which contains a brief description of the show or movie. The shows and movies were assigned a tag of `POS` for positive, `NEU` for neutral, and `NEG` for negative. The `sentiment` column was then one-hot encoded. 
+
+After performing sentiment analysis, I did some preliminary exploratory data analysis (EDA). I created bins for the `rating` variable and instantiated a random forest classifier to try to identify which variables were important to rating classification. I discovered that `votes`, `runtime`, and `start_year` (or `end_year`) are important features to classification. After this discovery, I made some pivot tables and visualizations in an attempt to understand the data better. Unsurprisingly, movies and tv shows that are voted on a lot tend to have higher ratings. Care needs to be taken in drawing any conclusions, however. The data is not uniformly distributed, and I did nothing to determine the type of the content, i.e. movie or tv show. 
+
+Follow-up analysis might try to make this determination as well as appropriate data is being removed before analysis. I made no attempt to create a genre classifer, but this could be done easily enough.
